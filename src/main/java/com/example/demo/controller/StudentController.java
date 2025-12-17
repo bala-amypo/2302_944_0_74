@@ -17,11 +17,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 
 @RestController
-public class Studentcontroller {
+public class StudentController {
     @Autowired
     StudentService src;
     @PostMapping("/post")//create
-    public StudentEntity postdata(@RequestBody Studententity st){
+    public StudentEntity postdata(@RequestBody StudentEntity st){
         return src.savedata(st);
     }
     @GetMapping("/get")//read

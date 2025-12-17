@@ -3,14 +3,14 @@ package com.example.demo.entity;
 import java.time.LocalDate;
 
 
-public class Studententity {
+public class StudentEntity {
     private String name;
     private int id;
     private LocalDate dob;
     private String email;
     private float cgpa;
 
-    public Studententity(String name, int id, LocalDate dob, String email, float cgpa) {
+    public StudentEntity(String name, int id, LocalDate dob, String email, float cgpa) {
         this.name = name;
         this.id = id;
         this.dob = dob;
@@ -18,7 +18,7 @@ public class Studententity {
         this.cgpa = cgpa;
     }
 
-    public Studententity(){
+    public StudentEntity(){
 
     }
     public String getName() {

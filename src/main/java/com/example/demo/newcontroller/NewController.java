@@ -1,43 +1,57 @@
-package com.example.demo.controller;
+package com.example.demo.newcontroller;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.demo.newentity.StudentValidation;
-import com.example.demo.newservice.NewService;
+import com.example.demo.entity.Student;
+import com.example.demo.newentity.NewfileEntity;
+import com.example.demo.newservice.NewfileService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/students")
 public class NewController {
 
-    @Autowired
-    private NewService src;
+    private final NewfileService service;
+
+    public StudentController(NewfileService service) {
+        this.service = service;
+    }
 
     @PostMapping
-    public StudentValidation postdata(@RequestBody StudentValidation st) {
-        return src.savedata(st);
+    public ResponseEntity<Student> createStudent(
+            @Valid @RequestBody Student student) {
+
+        return new ResponseEntity<>(
+                service.saveStudent(student),
+                HttpStatus.CREATED
+        );
     }
+
     @GetMapping
-    public List<StudentValidation> getdata() {
-        return src.getall();
+    public List<NewfileEntity> getall() {
+        return service.getall();
     }
 
     @GetMapping("/{id}")
-    public StudentValidation getIdVal(@PathVariable Long id) {
-        return src.getidval(id);
+    public NewfileEntity getStudent(@PathVariable Long id) {
+        return service.getidval(id);
     }
 
     @PutMapping("/{id}")
-    public StudentValidation updateId(
+    public Student updateStudent(
             @PathVariable Long id,
-            @RequestBody StudentValidation st) {
-        return src.update(id, st);
+            @Valid @RequestBody Student student) {
+
+        return service.update(id, student);
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteId(@PathVariable Long id) {
-        src.delete(id);
-    }
+    // @DeleteMapping("/{id}")
+    // public ResponseEntity<String> deleteStudent(@PathVariable Long id) {
+    //     service.deleteStudent(id);
+    //     return ResponseEntity.ok("Student deleted successfully");
+    // }
 }

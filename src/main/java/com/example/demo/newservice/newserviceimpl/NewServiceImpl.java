@@ -26,10 +26,13 @@ public class NewServiceImpl implements NewService {
     public List<StudentValidation> getall(){
         return rep.findAll();
     }
-
+    
     @Override
     public StudentValidation update(Long id,StudentValidation newfile){
-        return rep.update(id,newfile);
+        StudentValidation existing = getidval(id);
+        existing.setName(newfile.getName());
+        existing.setEmail(newfile.getEmail());
+        return rep.save(existing);
     }
 
     @Override

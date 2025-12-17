@@ -3,42 +3,41 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.example.demo.entity.StudentEntity;
-import com.example.demo.services.StudentService;
-import org.springframework.web.bind.annotation.PutMapping;
-
+import com.example.demo.newentity.StudentValidation;
+import com.example.demo.newservice.NewService;
 
 @RestController
+@RequestMapping("/students")
 public class NewController {
+
     @Autowired
-    NewService src;
-    @PostMapping("/post")//create
-    public StudentValidation postdata(@RequestBody StudentValidation st){
+    private NewService src;
+
+    @PostMapping
+    public StudentValidation postdata(@RequestBody StudentValidation st) {
         return src.savedata(st);
     }
-    @GetMapping("/get")//read
-    public List<StudentValidation> getdata(){
-        return src.retdata();
-    }
-    @GetMapping("/getid/{id}")
-    public StudentValidation getIdVal(@PathVariable int id){
-        return src.id(id);
-    }
-     @PutMapping("/update/{id}")
-    public StudentValidation updateId(@PathVariable int id,@RequestBody StudentValidation st){
-        return src.update(id,st);
-    }
-    @DeleteMapping("/delete/{id}")
-    public StudentValidation deleteId(@PathVariable int id){
-        return src.delete(id);
-
+    @GetMapping
+    public List<StudentValidation> getdata() {
+        return src.getall();
     }
 
+    @GetMapping("/{id}")
+    public StudentValidation getIdVal(@PathVariable Long id) {
+        return src.getidval(id);
+    }
+
+    @PutMapping("/{id}")
+    public StudentValidation updateId(
+            @PathVariable Long id,
+            @RequestBody StudentValidation st) {
+        return src.update(id, st);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteId(@PathVariable Long id) {
+        src.delete(id);
+    }
 }

@@ -2,13 +2,14 @@ package com.example.demo.entity;
 
 import java.time.LocalDate;
 
-
+@Entity
 public class StudentEntity {
-    private String name;
+    @Id
     private int id;
-    private LocalDate dob;
+    private String name;
+    @Column(name=unique)
     private String email;
-    private float cgpa;
+    private String role;
 
     public StudentEntity(String name, int id, LocalDate dob, String email, float cgpa) {
         this.name = name;

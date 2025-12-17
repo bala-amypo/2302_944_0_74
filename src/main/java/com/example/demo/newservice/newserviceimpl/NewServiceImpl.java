@@ -19,21 +19,21 @@ public class NewServiceImpl implements NewService {
 
     @Override
     public StudentValidation getidval(long id){
-        
+        return rep.get(id);
     }
 
     @Override
     public List<StudentValidation> getall(){
-        
+        return rep.getall();
     }
 
     @Override
-    public StudentValidation update(,Long id,StudentValidation newfile){
-        
+    public StudentValidation update(Long id,StudentValidation newfile){
+        return rep.update(id,newfile);
     }
 
     @Override
     public void delete(Long id){
-
+            return rep.remove(id);
     }
 }

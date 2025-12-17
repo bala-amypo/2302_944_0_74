@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/students")
-public class NewController {
+public class StudentController {
 
     private final NewfileService service;
 
@@ -22,13 +22,8 @@ public class NewController {
     }
 
     @PostMapping
-    public ResponseEntity<Student> createStudent(
-            @Valid @RequestBody Student student) {
-
-        return new ResponseEntity<>(
-                service.saveStudent(student),
-                HttpStatus.CREATED
-        );
+    public ResponseEntity<Student> createStudent(@Valid @RequestBodyStudent service) {
+        return new ResponseEntity<>(service.saveStudent(student),HttpStatus.CREATED);
     }
 
     @GetMapping
@@ -42,10 +37,8 @@ public class NewController {
     }
 
     @PutMapping("/{id}")
-    public Student updateStudent(
-            @PathVariable Long id,
-            @Valid @RequestBody Student student) {
-
+    public NewfileEntity updateStudent(@PathVariable Long id,
+    @Valid @RequestBody Student student) {
         return service.update(id, student);
     }
 

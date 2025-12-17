@@ -12,10 +12,11 @@ import jakarta.validation.constraints.Email;
 @Table(name="Student")
 public class StudentValidation{
     @Id
-    @GeneratedValu e(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     @NotBlank(message="No spaces")
     private String name;
+    @Column(name=unique)
     @NotBlank(message="no blank allowed")
     @Email(message="invalid format")
     private String email;

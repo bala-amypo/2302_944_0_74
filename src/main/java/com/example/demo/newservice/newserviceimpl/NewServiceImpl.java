@@ -37,6 +37,6 @@ public class NewServiceImpl implements NewService {
 
     @Override
     public void delete(Long id){
-            rep.deleteById(id);
+            rep.delete(id);
     }
 }

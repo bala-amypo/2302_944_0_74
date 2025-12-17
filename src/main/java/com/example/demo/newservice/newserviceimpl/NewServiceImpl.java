@@ -1,37 +1,34 @@
-package com.example.classes.newservice.newserviceimpl;
-
-import com.example.demo.newservice.NewService;
+package com.example.newservice.impl;
+import java.util.*;
+import org.springframework.stereotype.Service;
+import com.example.demo.entity.StudentValidation;
+import com.example.demo.service.StudentService;
+@Service
 
 public class NewServiceImpl implements NewService {
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
+    public StudentValidation savedata(StudentValidation newfile){
+
+    }
+
+    @Override
+    public StudentValidation getidval(long id){
         
     }
 
     @Override
-    public boolean equals(Object arg0) {
-        // TODO Auto-generated method stub
-        return super.equals(arg0);
+    public List<StudentValidation> getall(){
+        
     }
 
     @Override
-    protected void finalize() throws Throwable {
-        // TODO Auto-generated method stub
-        super.finalize();
+    public StudentValidation update(,Long id,StudentValidation newfile){
+        
     }
 
     @Override
-    public int hashCode() {
-        // TODO Auto-generated method stub
-        return super.hashCode();
-    }
+    public void delete(Long id){
 
-    @Override
-    public String toString() {
-        // TODO Auto-generated method stub
-        return super.toString();
     }
-    
-    
 }

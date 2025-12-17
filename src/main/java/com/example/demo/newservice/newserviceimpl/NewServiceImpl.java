@@ -24,7 +24,7 @@ public class NewServiceImpl implements NewService {
 
     @Override
     public List<StudentValidation> getall(){
-        return rep.tall();
+        return rep.findAll();
     }
 
     @Override
@@ -34,6 +34,6 @@ public class NewServiceImpl implements NewService {
 
     @Override
     public void delete(Long id){
-            rep.remove(id);
+            rep.deleteById(id);
     }
 }

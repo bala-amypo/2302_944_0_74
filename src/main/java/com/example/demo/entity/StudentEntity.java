@@ -11,12 +11,12 @@ public class StudentEntity {
     private String email;
     private String role;
 
-    public StudentEntity(String name, int id, LocalDate dob, String email, float cgpa) {
-        this.name = name;
+    public StudentEntity( int id, String name, String email, String role) {
+
         this.id = id;
-        this.dob = dob;
+        this.name = name;
         this.email = email;
-        this.cgpa = cgpa;
+        this.role = role;
     }
 
     public StudentEntity(){

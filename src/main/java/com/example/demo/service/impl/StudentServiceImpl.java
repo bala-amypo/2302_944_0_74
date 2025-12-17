@@ -26,11 +26,6 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Optional<StudentEntity> getOneStudent(Long id) {
-        return studentRepository.findById(id);
-    }
-
-    @Override
     public void deleteStudent(Long id) {
         studentRepository.deleteById(id);
     }

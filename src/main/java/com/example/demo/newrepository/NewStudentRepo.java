@@ -6,5 +6,5 @@ import com.example.demo.newentity.StudentValidation;
 
 @Repository
 public interface  NewStudentRepo extends JpaRepository<StudentValidation,Long>{
-
+   
 }

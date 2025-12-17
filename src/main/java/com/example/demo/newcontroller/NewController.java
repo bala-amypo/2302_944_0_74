@@ -20,23 +20,23 @@ public class NewController {
     @Autowired
     NewService src;
     @PostMapping("/post")//create
-    public StudentValidation postdata(@RequestBody StudentValidatio st){
+    public StudentValidation postdata(@RequestBody StudentValidation st){
         return src.savedata(st);
     }
     @GetMapping("/get")//read
-    public List<StudentValidatio> getdata(){
+    public List<StudentValidation> getdata(){
         return src.retdata();
     }
     @GetMapping("/getid/{id}")
-    public StudentEntity getIdVal(@PathVariable int id){
+    public StudentValidation getIdVal(@PathVariable int id){
         return src.id(id);
     }
      @PutMapping("/update/{id}")
-    public StudentEntity updateId(@PathVariable int id,@RequestBody StudentEntity st){
+    public StudentValidation updateId(@PathVariable int id,@RequestBody StudentValidation st){
         return src.update(id,st);
     }
     @DeleteMapping("/delete/{id}")
-    public StudentEntity deleteId(@PathVariable int id){
+    public StudentValidation deleteId(@PathVariable int id){
         return src.delete(id);
 
     }

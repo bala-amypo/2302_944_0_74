@@ -3,7 +3,7 @@ package com.example.demo.entity;
 import java.time.LocalDate;
 
 @Entity
-public class StudentEntity {
+public class Studententity {
     @Id
     private int id;
     private String name;
@@ -11,7 +11,7 @@ public class StudentEntity {
     private String email;
     private String role;
 
-    public StudentEntity( int id, String name, String email, String role) {
+    public Studententity( int id, String name, String email, String role) {
 
         this.id = id;
         this.name = name;
@@ -19,7 +19,7 @@ public class StudentEntity {
         this.role = role;
     }
 
-    public StudentEntity(){
+    public Studententity(){
 
     }
     public String getName() {

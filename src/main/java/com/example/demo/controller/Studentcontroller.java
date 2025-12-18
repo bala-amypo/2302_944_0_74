@@ -36,6 +36,5 @@ Studentservice src;
     }
     @DeleteMapping("/delete/{id}")
     public Studententity deleteStudent(@PathVariable int id){
-        return src.deleteStudent(id);
-    }
+        return src.deleteStudent(id);}
 }
